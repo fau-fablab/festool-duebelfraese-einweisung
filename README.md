@@ -52,7 +52,8 @@ Lizenz
 Die Einweisung und die Betriebsanweisung (`betriebsanweisung/ba_duebelfraese.tex`, BA-DF-01) sind selbst
 formuliert und enthalten keine Texte oder Abbildungen aus der Festool-Betriebsanleitung. Alle Zeichnungen
 in `zeichnungen/` sind selbst mit TikZ erstellt; Symbole nur nach ISO 7010 aus `fablab-document`.
-Die Fotos in `bilder/` stehen unter CC BY-SA 2.0 bzw. CC BY 2.0, siehe [bilder/QUELLEN.md](bilder/QUELLEN.md).
+Die Fotos der Dübelfräse in `bilder/` sind eigene Aufnahmen des FabLabs; das Foto des Langlochs steht unter
+CC BY 2.0, siehe [bilder/QUELLEN.md](bilder/QUELLEN.md).
 Für Details wird auf die Originalanleitung von Festool verwiesen. **Beim Bearbeiten nichts aus der
 Festool-Anleitung übernehmen, auch nicht sinngemäß Satz für Satz.** Bilder bitte selbst zeichnen
 oder fotografieren oder nur mit freier, kompatibler Lizenz verwenden.
