@@ -1,7 +1,7 @@
 % =====================================================================
 %  Dübelfräse beim Fräsen eines Langlochs in die Stirnseite eines
 %  Werkstücks: schematisch von der Seite, nicht maßstäblich.
-%  Selbst gezeichnet. Nummern wie in der Legende in einweisung_Duebelfraese.tex
+%  Selbst gezeichnet.
 % =====================================================================
 \begin{tikzpicture}[x=0.85mm, y=0.85mm, font=\scriptsize]
   % Werkbank und Werkstück mit Langloch
@@ -43,14 +43,13 @@
   \draw[vorschub] (108,37) -- (84,37);
   \node[anchor=south] at (96,38.5) {Eintauchen};
 
-  % Nummern
-  \newcommand{\nr}[3]{\draw[leitung] (#2) -- (#3); \node[marke] at (#2) {#1};}
-  \nr{1}{65,46}{65,33}
-  \nr{2}{80,-10}{80,4}
-  \nr{3}{14,46}{14,38}
-  \nr{4}{-24,30}{-12,23}
-  \nr{5}{-22,-10}{-12,7}
-  \nr{6}{12,-10}{12,1.5}
-  \nr{7}{-8,34}{-1,27}
-  \nr{8}{112,-10}{112,4.5}
+  % Beschriftung
+  \newcommand{\txt}[4][]{\draw[leitung] (#2) -- (#3); \node[#1, font=\scriptsize, fill=white, inner sep=0.8pt] at (#2) {#4};}
+  \txt[anchor=south]{65,46}{65,33}{Ein-/Ausschalter}
+  \txt[anchor=north]{80,-10}{80,4}{Motor fährt beim Eintauchen nach vorn}
+  \txt[anchor=south]{14,46}{14,38}{Griff}
+  \txt[anchor=south]{-24,30}{-12,23}{Fräsanschlag liegt oben auf}
+  \txt[anchor=north]{-26,-10}{-12,7}{Fräser im Langloch}
+  \txt[anchor=north]{24,-17}{1,4}{Stirnseite liegt an der Kante an}
+  \txt[anchor=north]{116,-17}{112,4.5}{Absaugung}
 \end{tikzpicture}
