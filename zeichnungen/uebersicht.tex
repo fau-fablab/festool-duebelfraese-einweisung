@@ -1,0 +1,56 @@
+% =====================================================================
+%  Dübelfräse beim Fräsen eines Langlochs in die Stirnseite eines
+%  Werkstücks: schematisch von der Seite, nicht maßstäblich.
+%  Selbst gezeichnet. Nummern wie in der Legende in einweisung_Duebelfraese.tex
+% =====================================================================
+\begin{tikzpicture}[x=0.85mm, y=0.85mm, font=\scriptsize]
+  % Werkbank und Werkstück mit Langloch
+  \fill[black!8] (-52,-4) rectangle (128,0);
+  \draw[black!40, line width=0.5pt] (-52,0) -- (128,0);
+  \draw[werkstueck] (-50,0) rectangle (0,19);
+  \fill[nut] (-16,6) rectangle (0,13);
+  \node at (-33,9.5) {Werkstück};
+
+  % Fräser (eingetaucht) mit Schaft
+  \draw[fraeser, fill=black!35] (-3,8.3) rectangle (6,10.7);
+  \draw[fraeser] (-15,7) rectangle (-3,12);
+  \draw[white, line width=0.5pt] (-13,7) -- (-10,12) (-8,7) -- (-5,12);
+
+  % Absauganschluss und Netzkabel (hinten)
+  \draw[gehaeuse, fill=black!30] (104,1) rectangle (120,8);
+  \draw[gehaeuse, fill=black!45] (118,0) rectangle (121,9);
+  \draw[black!85, line width=1.6pt] (110,20) to[out=0,in=180] (126,26);
+
+  % Motorgehäuse mit Ein-/Ausschalter oben
+  \draw[gehaeuse, rounded corners=4] (22,4) rectangle (112,30);
+  \foreach \x in {88,92,...,104}
+    \draw[black!50, line width=0.8pt, line cap=round] (\x,10) -- (\x,24);
+  \draw[fill=bediengruen, draw=black!80, line width=0.5pt, rounded corners=1] (58,30) rectangle (72,33);
+
+  % Vorderteil (Fräskorb) mit Grundplatte
+  \draw[gehaeuse, fill=black!20, rounded corners=1.5] (0,0) rectangle (24,27);
+  \draw[metall, fill=black!40] (0,0) rectangle (40,3);
+  \fill[black!70] (0,6) rectangle (1.5,13);
+
+  % Fräsanschlag auf dem Werkstück, Griff obendrauf
+  \draw[metall, fill=black!30] (-16,19) rectangle (10,23);
+  \draw[metall, fill=black!30] (4,19) rectangle (10,32);
+  \draw[griff, rounded corners=3] (2,32) rectangle (26,38);
+  % Anschlagbolzen
+  \draw[fill=black!70, draw=black!90] (-1.5,23) rectangle (0,27);
+
+  % Eintauchrichtung
+  \draw[vorschub] (108,37) -- (84,37);
+  \node[anchor=south] at (96,38.5) {Eintauchen};
+
+  % Nummern
+  \newcommand{\nr}[3]{\draw[leitung] (#2) -- (#3); \node[marke] at (#2) {#1};}
+  \nr{1}{65,46}{65,33}
+  \nr{2}{80,-10}{80,4}
+  \nr{3}{14,46}{14,38}
+  \nr{4}{-24,30}{-12,23}
+  \nr{5}{-22,-10}{-12,7}
+  \nr{6}{12,-10}{12,1.5}
+  \nr{7}{-8,34}{-1,27}
+  \nr{8}{112,-10}{112,4.5}
+\end{tikzpicture}

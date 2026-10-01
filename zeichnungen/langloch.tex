@@ -1,0 +1,62 @@
+% =====================================================================
+%  Prinzip der Dübelfräse: Langloch, Langlochbreiten, Reihenfolge eng/weit,
+%  fertige Verbindung. Ansicht auf die Stirnseite bzw. Schnitt. Selbst gezeichnet.
+% =====================================================================
+\begin{tikzpicture}[x=1mm, y=1mm, font=\scriptsize,
+    langloch/.style={fill=black!70, rounded corners=2.4},
+    duebel/.style={draw=holz, dashed, line width=0.7pt, rounded corners=2.4}]
+
+  % ---------------- 1 Langloch -------------------------------------
+  \feld{0}{50}{82}{46}{1\quad Fräser dreht und pendelt}
+  \begin{scope}[shift={(0,50)}]
+    \draw[werkstueck] (8,10) rectangle (74,31);
+    \fill[langloch] (29,18) rectangle (53,23.5);
+    \fill[black!35] (41,20.75) circle (2.6);
+    \draw[drehung, okgruen] (41,20.75) ++(160:4.2) arc[start angle=160, end angle=20, radius=4.2];
+    \draw[mass, line width=0.8pt, okgruen] (30,27.5) -- (52,27.5);
+    \node[anchor=west] at (54,27.5) {pendeln};
+    \node[align=center] at (41,5) {Stirnseite des Werkstücks: es entsteht ein Langloch};
+  \end{scope}
+
+  % ---------------- 2 Langlochbreiten ------------------------------
+  \feld{88}{50}{82}{46}{2\quad Drei Langlochbreiten}
+  \begin{scope}[shift={(88,50)}]
+    \draw[werkstueck] (6,13) rectangle (76,31);
+    \fill[langloch] (9,19.5) rectangle (23,24.5);
+    \fill[langloch] (30,19.5) rectangle (47,24.5);
+    \fill[langloch] (54,19.5) rectangle (74,24.5);
+    \foreach \x in {9.3,31.8,57.3}
+      \draw[duebel] (\x,19.8) rectangle ++(13.4,4.4);
+    \node at (16,9) {eng};
+    \node at (38.5,9) {mittel};
+    \node at (64,9) {weit};
+    \node[align=center] at (41,4) {gestrichelt: Dübel};
+  \end{scope}
+
+  % ---------------- 3 Reihenfolge ----------------------------------
+  \feld{0}{0}{82}{46}{3\quad Erst eng, dann weit}
+  \begin{scope}[shift={(0,0)}]
+    \draw[werkstueck] (4,16) rectangle (78,30);
+    \fill[langloch] (10,20.5) rectangle (24,25.5);
+    \fill[langloch] (34,20.5) rectangle (52,25.5);
+    \fill[langloch] (57,20.5) rectangle (75,25.5);
+    \node at (17,12) {eng};
+    \node at (43,12) {weit};
+    \node at (66,12) {weit};
+    \node[align=center] at (41,5) {das erste Langloch legt die Lage fest};
+  \end{scope}
+
+  % ---------------- 4 Verbindung -----------------------------------
+  \feld{88}{0}{82}{46}{4\quad Fertige Verbindung (Schnitt)}
+  \begin{scope}[shift={(88,0)}]
+    \draw[werkstueck] (6,14) rectangle (40,30);
+    \draw[werkstueck] (42,14) rectangle (76,30);
+    \fill[nut] (27,19.5) rectangle (40,24.5) (42,19.5) rectangle (55,24.5);
+    \draw[fill=holz!70!white, draw=holzrand, line width=0.5pt, rounded corners=1.2] (28.5,19.8) rectangle (53.5,24.2);
+    \draw[holzrand, line width=0.3pt] \foreach \x in {31,34,...,52} {(\x,20) -- (\x+1.5,24)};
+    \draw[mass] (27,33) -- (40,33);
+    \draw[hilfslinie] (27,24.5) -- (27,34) (40,30) -- (40,34);
+    \node[anchor=south] at (33.5,33.5) {Frästiefe};
+    \node[align=center] at (41,6) {Frästiefe je Teil mindestens\\halbe Dübellänge};
+  \end{scope}
+\end{tikzpicture}

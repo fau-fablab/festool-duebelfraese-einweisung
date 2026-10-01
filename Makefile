@@ -1,0 +1,2 @@
+TARGET=einweisung_Duebelfraese Einweisungsliste_Duebelfraese Betriebsanweisung_Duebelfraese
+include fablab-document/Makefile.include

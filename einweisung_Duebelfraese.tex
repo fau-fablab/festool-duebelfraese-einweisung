@@ -1,0 +1,345 @@
+% !TeX spellcheck = de_DE_frami
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COPYRIGHT: (C) 2026 FAU FabLab and others
+% CC-BY-SA 3.0
+% Text in eigenen Worten, KEINE Passagen oder Abbildungen aus der
+% Festool-Betriebsanleitung übernehmen (siehe README, Abschnitt Lizenz).
+% Die Zeichnungen in zeichnungen/ sind selbst mit TikZ erstellt,
+% Fotos nur mit freier Lizenz (siehe bilder/QUELLEN.md).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\basedir}{fablab-document}
+\documentclass{\basedir/fablab-document}
+
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{tabularx} % Tabellen mit bestimmtem Breitenverhältnis der Spalten
+\usepackage{caption}
+\usepackage{qrcode}
+\usepackage{fablab-document/fablab-ba} % Betriebsanweisung
+\input{zeichnungen/stil} % Farben und Stile der Zeichnungen
+
+% Nummer eines Bedienelements wie in der Übersicht, z.B. \teil{3}
+\newcommand{\teil}[1]{\tikz[baseline=(n.base)]\node[marke, minimum size=3.8mm, font=\tiny\bfseries](n){#1};}
+
+\date{\today}
+% Versionsnummer: version.tex wird von make erzeugt,
+% ohne git steht stattdessen "Entwurf" mit Datum in der Fußzeile.
+\InputIfFileExists{version}{}{\newcommand{\Version}{Entwurf \today}}
+\fancyfoot[R]{Version \Version}
+\author{kontakt@fablab.fau.de}
+\title{Einweisung Dübelfräse}
+
+\begin{document}
+
+	\maketitle
+	\begin{center}
+		Für die Dübelfräse \textbf{Festool DOMINO DF 500 RQ-Plus}\\[1mm]
+		{\small Version \Version}
+	\end{center}
+
+	\textbf{Nur eingewiesene Benutzer dürfen die Dübelfräse selbstständig benutzen.}
+	Wenn du noch nicht eingewiesen bist, frage einen Betreuer. Nach der Einweisung und Unterschrift darfst du die Dübelfräse selbstständig verwenden.
+
+	\section{Regeln und Sicherheit}
+
+	\begin{itemize}
+		\item Das Werkstück ist immer \textbf{fest gespannt} oder liegt bei großen Platten sicher auf. Kleine Teile nie mit der Hand halten.
+		\item Die Fräse wird immer mit \textbf{beiden Händen} geführt: eine Hand am Motorgehäuse, eine am Griff des Fräsanschlags.
+		\item Hände nie vor die Stirnseite der Fräse halten: Dort tritt der Fräser beim Eintauchen heraus.
+		\item Erst ansetzen, dann einschalten, dann eintauchen. Nach dem Fräsen ausschalten und warten, bis der Fräser steht.
+		\item Immer mit angeschlossener Absaugung fräsen.
+		\item Gehörschutz und Schutzbrille tragen, bei viel Staub (Hartholz) zusätzlich Staubmaske. Beim Fräsen \textbf{keine Handschuhe}.
+		\item Fräser nur bei \textbf{gezogenem Netzstecker} wechseln.
+		\item Nur Holz und Holzwerkstoffe fräsen.
+		\item Netzkabel und Saugschlauch aus dem Arbeitsbereich fernhalten.
+		\item Im Arbeitsbereich dürfen sich keine Unbeteiligten aufhalten.
+		\item Schäden an der Fräse sofort melden: \texttt{fablab-aktive@fablab.fau.de}.
+	\end{itemize}
+
+	Zusätzlich gilt die \textbf{Betriebsanweisung} auf der nächsten Seite (Abschnitt~\ref{sec:betriebsanweisung}). Sie hängt bei der Dübelfräse aus und ist Bestandteil dieser Einweisung.
+
+	\newpage
+
+	% Betriebsanweisung als ganze Seite im Format des Aushangs
+	\BAseite[sec:betriebsanweisung]{betriebsanweisung/ba_duebelfraese}
+
+	\renewcommand{\contentsname}{Inhaltsverzeichnis / Arbeitsablauf}
+	\setcounter{tocdepth}{2}
+	\tableofcontents
+	\newpage
+
+	\section{Die Dübelfräse und ihre Anleitung}
+
+	\begin{center}
+		\begin{tabular}{r|l}
+			Hersteller & Festool \\
+			Produktname & Dübelfräse DOMINO DF 500 RQ-Plus \\
+			Leistung & $420\,\mathrm{Watt}$ \\
+			Drehzahl & $25.500\,\mathrm{min}^{-1}$ \\
+			Fräserdurchmesser & $4$, $5$, $6$, $8$ und $10\,\mathrm{mm}$ \\
+			Frästiefe & $12$, $15$, $20$, $25$ oder $28\,\mathrm{mm}$ \\
+			Fräshöhe & $5 - 30\,\mathrm{mm}$ \\
+			Fräswinkel & $0 - 90$\textdegree \\
+			Dübel & $4 \times 20$ bis $10 \times 50\,\mathrm{mm}$ \\
+			Absauganschluss & $27\,\mathrm{mm}$ \\
+		\end{tabular}
+	\end{center}
+
+	\subsection{Bedienelemente}
+	\label{sec:bedienelemente}
+
+	Die Zeichnung zeigt die Fräse von der Seite, während sie ein Langloch in die Stirnseite eines Werkstücks fräst. Die Nummern werden in der ganzen Einweisung verwendet.
+
+	\begin{center}
+		\input{zeichnungen/uebersicht}
+	\end{center}
+
+	\begin{center}
+		\small
+		\renewcommand{\arraystretch}{1.25}
+		\renewcommand{\tabularxcolumn}[1]{m{#1}}
+		\begin{tabularx}{\textwidth}{|c|m{42mm}|X|}
+			\hline
+			& \textbf{Bedienelement} & \textbf{Bedienung} \\ \hline
+			\teil{1} & Ein-/Ausschalter (grün, oben) & Schiebeschalter: Die Fräse läuft, bis du ihn wieder zurückschiebst. \\ \hline
+			\teil{2} & Motorgehäuse & Eine Hand. Beim Eintauchen schiebst du den Motor nach vorn, eine Feder drückt ihn danach zurück. \\ \hline
+			\teil{3} & Griff am Fräsanschlag & Zweite Hand. Drückt den Anschlag flach auf das Werkstück. \\ \hline
+			\teil{4} & Fräsanschlag & Liegt flach auf dem Werkstück. Höhe (5--30\,mm) und Winkel (0--90\textdegree) sind einstellbar. \\ \hline
+			\teil{5} & Fräser & Dreht und pendelt seitlich. Kommt nur beim Eintauchen vorn aus der Stirnseite heraus. \\ \hline
+			\teil{6} & Grundplatte und Stirnseite & Die Stirnseite liegt flach an der Werkstückkante an. \\ \hline
+			\teil{7} & Anschlagbolzen & Ausklappen, um das Langloch in festem Abstand zur Werkstückkante zu setzen. \\ \hline
+			\teil{8} & Absauganschluss & Saugschlauch aufstecken. Nie ohne Absaugung fräsen. \\ \hline
+		\end{tabularx}
+	\end{center}
+
+	{\footnotesize Schematische Zeichnung, nicht maßstäblich. Die Anordnung an der echten Fräse weicht im Detail ab. Wo die Einstellungen für Frästiefe und Langlochbreite sitzen, zeigt dir der Betreuer an der Maschine.}
+
+	\begin{center}
+		\includegraphics[width=0.62\textwidth]{bilder/domino-benutzung.jpg}\\[1mm]
+		{\footnotesize Eine Dübelfräse DF 500 (älteres Modell) im Einsatz: beide Hände an der Maschine.\\
+		Foto: Fabrice Florin, \href{https://www.flickr.com/photos/44124339301@N01/26560094652}{Flickr}, Lizenz \href{https://creativecommons.org/licenses/by-sa/2.0/}{CC BY-SA 2.0}, Ausschnitt.}
+	\end{center}
+
+	\subsection{Anleitung und bestimmungsgemäße Verwendung}
+
+	Diese Einweisung fasst die Regeln des FabLabs zusammen und erklärt die Bedienung in eigenen Worten. Sie ersetzt nicht die Betriebsanleitung des Herstellers: Die \textbf{Originalbetriebsanleitung} liegt der Maschine bei. Was hier nicht beschrieben ist (Zubehör, weitere Anschläge, Ersatzteile), steht dort.
+
+	\begin{center}
+		\begin{tabular}{cc}
+			\qrcode[height=2.2cm]{https://www.festool.de/bedienungsanleitungen} &
+			\qrcode[height=2.2cm]{https://www.festool.de/produkte/domino-verbindungssystem/duebelfraesen} \\[1mm]
+			\href{https://www.festool.de/bedienungsanleitungen}{Bedienungsanleitungen} &
+			\href{https://www.festool.de/produkte/domino-verbindungssystem/duebelfraesen}{Dübelfräsen bei Festool}
+		\end{tabular}
+	\end{center}
+
+	Die Dübelfräse fräst Langlöcher für DOMINO-Dübel in Holz und Holzwerkstoffe, zum Beispiel für Eck-, T- und Flächenverbindungen von Platten, Rahmen und Gestellen. Sie wird von Hand geführt.
+
+	\section{So funktioniert die Dübelverbindung}
+
+	\subsection{Langloch und Dübel}
+	\label{sec:prinzip}
+	Der Fräser dreht sich und pendelt dabei seitlich hin und her. So entsteht kein rundes Loch wie beim Bohren, sondern ein \textbf{Langloch}. In beide Teile wird an der gleichen Stelle ein Langloch gefräst, der flache DOMINO-Dübel wird eingeleimt und verbindet die Teile.
+
+	\begin{center}
+		\input{zeichnungen/langloch}
+	\end{center}
+
+	\begin{itemize}
+		\item Die Langlochbreite lässt sich in drei Stufen wählen: \textbf{eng} (so breit wie der Dübel), \textbf{mittel} und \textbf{weit} (mit seitlichem Spiel).
+		\item Pro Verbindung wird das erste Langloch in jedem Teil \textbf{eng} gefräst. Es legt die Lage der Teile zueinander fest. Die weiteren Langlöcher werden weit gefräst. Das Spiel gleicht kleine Ungenauigkeiten beim Anzeichnen aus, die Teile lassen sich trotzdem bündig zusammenstecken.
+	\end{itemize}
+
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{bilder/domino-langloch.jpg}\\[1mm]
+		{\footnotesize Langloch in der Kante einer Spanplatte.
+		Foto: Pete Brown, \href{https://www.flickr.com/photos/34452246@N02/39827901651}{Flickr}, Lizenz \href{https://creativecommons.org/licenses/by/2.0/}{CC BY 2.0}, Ausschnitt.}
+	\end{center}
+
+	\subsection{Dübel, Fräser und Frästiefe}
+	\label{sec:duebel}
+	Fräser und Frästiefe richten sich nach dem Dübel. Die Frästiefe je Teil muss mindestens die halbe Dübellänge betragen, sonst stößt der Dübel an und die Fuge bleibt offen. Gewählt wird die nächste passende Stufe des Tiefenanschlags.
+
+	\begin{center}
+		\small
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{|l|c|c|}
+			\hline
+			\textbf{Dübel (Dicke $\times$ Länge)} & \textbf{Fräser} & \textbf{Frästiefe je Teil} \\ \hline
+			$4 \times 20$\,mm & 4\,mm & 12\,mm \\ \hline
+			$5 \times 30$\,mm & 5\,mm & 15\,mm \\ \hline
+			$6 \times 40$\,mm & 6\,mm & 20\,mm \\ \hline
+			$8 \times 40$\,mm & 8\,mm & 20\,mm \\ \hline
+			$8 \times 50$\,mm & 8\,mm & 25\,mm \\ \hline
+			$10 \times 50$\,mm & 10\,mm & 25\,mm \\ \hline
+		\end{tabular}
+	\end{center}
+
+	Faustregel: Der Dübel ist etwa ein Drittel so dick wie das Material, also z.\,B.\ 6\,mm-Dübel bei 19\,mm Plattenstärke.
+
+	\section{Vorbereitung}
+
+	\subsection{Checkliste vor dem Fräsen}
+	Vor \textbf{jedem} Einsatz durchgehen:
+	\begin{itemize}
+		\item Fräse, Netzkabel und Saugschlauch unbeschädigt?
+		\item Richtiger Fräser für den Dübel eingesetzt, scharf und unbeschädigt?
+		\item Frästiefe, Langlochbreite, Höhe und Winkel eingestellt und alle Klemmungen fest?
+		\item Schutzausrüstung angelegt (siehe unten)?
+		\item Absaugung angeschlossen, Sauger auf \enquote{AUTO}?
+		\item Werkstück fest gespannt, Anrisse auf beiden Teilen?
+		\item Ein-/Ausschalter~\teil{1} in Stellung Aus, bevor der Netzstecker eingesteckt wird?
+		\item Arbeitsbereich frei, keine Unbeteiligten in der Nähe?
+	\end{itemize}
+
+	\subsection{Schutzausrüstung}
+	\begin{itemize}
+		\item Gehörschutz: immer.
+		\item Schutzbrille: immer, Späne können seitlich herausfliegen.
+		\item Staubmaske bei stauberzeugenden Arbeiten, insbesondere bei Hartholz.
+		\item Beim Fräsen \textbf{keine Handschuhe} tragen: Der rotierende Fräser kann sie erfassen und die Hand mitziehen. Schutzhandschuhe nur, wenn die Fräse steht: beim Fräserwechsel mit gezogenem Netzstecker und beim Tragen von rauem Material.
+		\item Eng anliegende Kleidung ohne Fransen, Schals oder Kordeln, keinen Schmuck. Lange Haare zusammenbinden.
+	\end{itemize}
+
+	\subsection{Material}
+	\begin{itemize}
+		\item Zugelassen: Massivholz und Holzwerkstoffe wie Spanplatte, MDF und Sperrholz.
+		\item Nicht zugelassen: Metall, Kunststoff, Stein und Material mit Nägeln, Schrauben oder Klammern im Fräsbereich.
+		\item Hartholzstaub ist gesundheitsschädlich. Bei Hartholz nur mit dem Sauger der Staubklasse M (oder besser) arbeiten.
+	\end{itemize}
+
+	\subsection{Absaugung}
+	Immer mit dem Festool-Sauger fräsen. Den Netzstecker der Fräse in die Steckdose am Sauger stecken und den Sauger auf \enquote{AUTO} stellen: Er startet dann mit der Fräse und läuft nach dem Ausschalten kurz nach. Lässt die Absaugung nach, die Arbeit unterbrechen, den Netzstecker ziehen und Absauganschluss~\teil{8} und Schlauch auf Verstopfung prüfen.
+
+	\subsection{Werkstück spannen und anzeichnen}
+	\begin{itemize}
+		\item Werkstücke mit Zwingen auf der Werkbank spannen. Die Zwingen dürfen Fräse und Fräsanschlag nicht behindern.
+		\item Beide Teile so hinlegen, wie sie später zusammengehören, und mit einem Bleistiftstrich quer über die Fuge die Lage jedes Dübels auf beiden Teilen anzeichnen.
+		\item Die Sichtseiten markieren. Alle Langlöcher werden mit dem Fräsanschlag auf der Sichtseite gefräst (Abschnitt~\ref{sec:hoehe}).
+	\end{itemize}
+
+	\section{Einstellungen}
+
+	\subsection{Fräser}
+	Der Fräser muss zum Dübel passen (Tabelle in Abschnitt~\ref{sec:duebel}). Ist der falsche Fräser eingesetzt, einen Betreuer fragen. Der Wechsel erfolgt nur bei gezogenem Netzstecker (Abschnitt~\ref{sec:fraeserwechsel}).
+
+	\subsection{Frästiefe}
+	Der Tiefenanschlag hat fünf Raststufen: 12, 15, 20, 25 und 28\,mm. Die Stufe passend zum Dübel einstellen (Tabelle in Abschnitt~\ref{sec:duebel}). In der Regel wird bei beiden Teilen einer Verbindung dieselbe Frästiefe eingestellt.
+
+	\subsection{Langlochbreite}
+	An der Einstellung für die Langlochbreite zwischen \textbf{eng}, \textbf{mittel} und \textbf{weit} wählen. Das erste Langloch jedes Teils eng fräsen, danach auf weit umstellen (Abschnitt~\ref{sec:prinzip}).
+
+	\subsection{Höhe}
+	\label{sec:hoehe}
+	Die Höhe ist der Abstand zwischen der Unterseite des Fräsanschlags~\teil{4} und der Mitte des Langlochs. Sie wird am Fräsanschlag eingestellt (5--30\,mm, mit Skala) und geklemmt. Meist wird die halbe Materialstärke eingestellt.
+
+	\begin{center}
+		\input{zeichnungen/hoehe}
+	\end{center}
+
+	\textbf{Wichtig:} Bei allen Teilen einer Verbindung den Fräsanschlag immer auf derselben Seite auflegen, am besten auf der \textbf{Sichtseite}. Dann sind die Oberflächen bündig, auch wenn das Langloch nicht genau in der Mitte sitzt. Wird ein Teil von der anderen Seite gefräst, verdoppelt sich ein kleiner Fehler zu einem sichtbaren Versatz.
+
+	\subsection{Winkel}
+	Für Gehrungen und schräge Verbindungen lässt sich der Fräsanschlag von 0\textdegree{} bis 90\textdegree{} schwenken. Klemmung lösen, Winkel an der Skala einstellen und wieder fest klemmen. Vor dem Fräsen prüfen, dass Höhe und Winkel fest geklemmt sind.
+
+	\section{Fräsen}
+
+	\subsection{Ein Langloch Schritt für Schritt}
+	\begin{enumerate}
+		\item Checkliste vor dem Fräsen durchgehen.
+		\item Werkstück spannen, Lage des Dübels anzeichnen.
+		\item Frästiefe, Langlochbreite (erstes Loch: eng), Höhe und Winkel einstellen.
+		\item Absaugung anschließen, Sauger auf \enquote{AUTO}, Schutzausrüstung anlegen.
+		\item Netzstecker einstecken. Der Schalter~\teil{1} steht auf Aus.
+		\item Fräse ansetzen: Fräsanschlag~\teil{4} flach auf die Sichtseite, Stirnseite~\teil{6} an die Werkstückkante, Mittenmarkierung der Fräse auf den Bleistiftstrich.
+		\item Beide Hände an die Fräse: Motorgehäuse~\teil{2} und Griff~\teil{3}.
+		\item Einschalten und warten, bis der Motor die volle Drehzahl erreicht hat.
+		\item Den Motor gleichmäßig nach vorn schieben, bis der Tiefenanschlag erreicht ist, und kurz halten. Nicht ruckartig eintauchen.
+		\item Den Motor langsam zurückgleiten lassen, die Fräse dabei weiter flach angedrückt halten.
+		\item Für das nächste Langloch Langlochbreite auf weit stellen, neu ansetzen und wiederholen.
+		\item Ausschalten, warten, bis der Fräser steht, erst dann die Fräse absetzen.
+		\item Netzstecker ziehen, Werkstück lösen, Arbeitsplatz absaugen.
+	\end{enumerate}
+
+	\subsection{Einschalten und Ausschalten}
+	\begin{itemize}
+		\item Vor dem Einstecken und vor dem Ausstecken des Netzsteckers steht der Schalter~\teil{1} immer auf Aus.
+		\item Der Schalter ist ein Schiebeschalter und rastet ein: Die Fräse läuft weiter, auch wenn du die Hände wegnimmst. Deshalb nach jedem Langloch bzw.\ jeder Reihe von Langlöchern ausschalten.
+		\item Die Fräse nie eingeschaltet ablegen. Ausschalten und warten, bis der Fräser steht.
+	\end{itemize}
+
+	\subsection{Regeln beim Fräsen}
+	\begin{itemize}
+		\item Die Fräse beim Eintauchen fest an das Werkstück drücken, sonst kann sie wegrutschen und das Langloch verläuft.
+		\item Nie in die Öffnung an der Stirnseite greifen, auch nicht, wenn der Motor zurückgefahren ist.
+		\item Nicht in kurze Reststücke oder sehr dünnes Material fräsen, das sich nicht sicher spannen lässt.
+		\item Klemmt der Fräser: Motor zurückgleiten lassen, ausschalten, warten, bis der Fräser steht.
+		\item Bei Pausen und vor jedem Umstellen der Fräse den Netzstecker ziehen.
+	\end{itemize}
+
+	\subsection{Verleimen}
+	\begin{enumerate}
+		\item Erst ohne Leim zusammenstecken und prüfen, ob alles passt und bündig ist.
+		\item Leim an die Wände der Langlöcher geben, die Dübel in ein Teil einstecken.
+		\item Teile zusammenfügen, mit Zwingen pressen und herausquellenden Leim entfernen.
+	\end{enumerate}
+
+	\subsection{Nicht erlaubt}
+	Folgendes ist im FabLab \textbf{verboten}:
+	\begin{itemize}
+		\item Benutzen der Fräse durch nicht eingewiesene Personen.
+		\item Führen der Fräse mit nur einer Hand.
+		\item Fräsen mit Handschuhen.
+		\item Fräsen ohne angeschlossene Absaugung.
+		\item Fräsen von ungespannten oder nur mit der Hand gehaltenen kleinen Teilen.
+		\item Fräsen von Metall, Kunststoff, Stein und anderen nicht zugelassenen Materialien sowie von Material mit Nägeln, Schrauben oder Klammern im Fräsbereich.
+		\item Verwenden stumpfer, beschädigter oder nicht passender Fräser.
+		\item Fräserwechsel bei eingestecktem Netzstecker.
+	\end{itemize}
+
+	\section{Nach dem Fräsen}
+
+	\begin{itemize}
+		\item Fräse ausschalten, Fräser auslaufen lassen, Netzstecker ziehen.
+		\item Fräse und Absauganschluss aussaugen, Arbeitsplatz und Boden absaugen.
+		\item Fräse, Zubehör und Sauger an ihren Platz zurücklegen.
+		\item Schäden, stumpfe Fräser oder Probleme einem Betreuer melden.
+	\end{itemize}
+
+	\section{Infos für Betreuer}
+
+	\subsection{Fräserwechsel}
+	\label{sec:fraeserwechsel}
+	\begin{itemize}
+		\item Nur bei gezogenem Netzstecker, mit Schutzhandschuhen. Der Fräser ist scharf und kann nach dem Fräsen heiß sein.
+		\item Der Fräser ist eingeschraubt und wird mit dem Gabelschlüssel SW 8 (im Systainer) gelöst und angezogen. Die genauen Schritte stehen in der Betriebsanleitung.
+		\item Nur DOMINO-Fräser für die DF 500 verwenden, passend zum Dübel. Neuen Fräser fest anziehen und vor dem ersten Einschalten die Handschuhe ausziehen.
+		\item Danach Frästiefe und Langlochbreite an einem Reststück prüfen.
+	\end{itemize}
+
+	\subsection{Typische Fehler}
+	\begin{itemize}
+		\item \textbf{Teile nicht bündig:} Fräsanschlag nicht immer auf derselben Seite aufgelegt oder Höhe zwischendurch verstellt.
+		\item \textbf{Teile lassen sich seitlich nicht ausrichten:} alle Langlöcher eng gefräst. Nur das erste eng, die weiteren weit.
+		\item \textbf{Fuge bleibt offen:} Frästiefe zu gering oder Späne im Langloch. Langlöcher ausblasen bzw.\ aussaugen, Frästiefe prüfen.
+		\item \textbf{Langloch verlaufen oder ausgefranst:} Fräse beim Eintauchen nicht fest angedrückt, zu schnell eingetaucht oder Fräser stumpf.
+		\item \textbf{Absaugung schwach:} Absauganschluss oder Schlauch verstopft, Sauger voll.
+	\end{itemize}
+
+	\subsection{Pflege und Prüfung}
+	\begin{itemize}
+		\item Fräse und Motorlüftung regelmäßig von Staub reinigen.
+		\item Kabel, Fräser und Anschläge regelmäßig prüfen. Stumpfe oder beschädigte Fräser aussortieren.
+		\item Elektrische Prüfung nach DGUV Vorschrift 3 gemäß Prüffrist.
+		\item Wartung nur durch Betreuer mit gezogenem Netzstecker.
+	\end{itemize}
+
+	\section{Quellen}
+	Die Formulierungen und Zeichnungen dieser Einweisung sind eigenständig erstellt; die Zeichnungen sind mit TikZ gezeichnet und zeigen die Fräse schematisch. Sachliche Angaben (technische Daten, Sicherheitsregeln) beruhen auf den Angaben des Herstellers und allgemein bekannten Regeln. Maßgeblich ist die Originalbetriebsanleitung von Festool, die der Maschine beiliegt (Links siehe oben). Festool hat dieses Dokument weder geprüft noch übernimmt es dafür eine Haftung.
+
+	Fotos: Fabrice Florin (Flickr, CC BY-SA 2.0) und Pete Brown (Flickr, CC BY 2.0), jeweils als Ausschnitt; Nachweise in \texttt{bilder/QUELLEN.md}.
+
+	\ccLicense{festool-duebelfraese-einweisung}{Einweisung Festool-Dübelfräse DOMINO}
+
+\end{document}
