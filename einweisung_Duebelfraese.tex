@@ -18,6 +18,8 @@
 \usepackage{qrcode}
 \usepackage{fablab-document/fablab-ba} % Betriebsanweisung
 \input{zeichnungen/stil} % Farben und Stile der Zeichnungen
+% Farbe mit Farbfeld, Wort in etwas dunklerer Farbe (lesbar), z.B. \farbe{bediengruen}{grün}
+\newcommand{\farbe}[2]{{\colorlet{farbefeld}{#1}\tikz[baseline=-0.6ex]\draw[fill=farbefeld, draw=black!60] (0,-1.1mm) rectangle (2.2mm,1.1mm);~\textcolor{farbefeld!70!black}{#2}}}
 
 % Nummer eines Bedienelements wie in der Übersicht, z.B. \teil{3}
 \newcommand{\teil}[1]{\tikz[baseline=(n.base)]\node[marke, minimum size=3.8mm, font=\tiny\bfseries](n){#1};}
@@ -102,11 +104,11 @@
 		\begin{tabularx}{\textwidth}{|c|m{42mm}|X|}
 			\hline
 			& \textbf{Bedienelement} & \textbf{Bedienung} \\ \hline
-			\teil{1} & Ein-/Ausschalter (grün, oben) & Schiebeschalter, rastet ein: Die Fräse läuft, bis du ihn wieder zurückschiebst. \\ \hline
+			\teil{1} & Ein-/Ausschalter (\farbe{bediengruen}{grün}, oben) & Schiebeschalter, rastet ein: Die Fräse läuft, bis du ihn wieder zurückschiebst. \\ \hline
 			\teil{2} & Motorgehäuse & Eine Hand. Beim Eintauchen schiebst du den Motor nach vorn, eine Feder drückt ihn danach zurück. \\ \hline
 			\teil{3} & Griff am Fräsanschlag & Zweite Hand. Drückt die Fräse an das Werkstück. \\ \hline
-			\teil{4} & Drehknopf Langlochbreite (grün) & Drei Stellungen: eng, mittel, weit (Abschnitt~\ref{sec:prinzip}). \\ \hline
-			\teil{5} & Tiefenanschlag (grüner Schieber, Skala 12--28) & Frästiefe passend zum Dübel einrasten (Abschnitt~\ref{sec:duebel}). \\ \hline
+			\teil{4} & Drehknopf Langlochbreite (\farbe{bediengruen}{grün}) & Drei Stellungen: eng, mittel, weit (Abschnitt~\ref{sec:prinzip}). \\ \hline
+			\teil{5} & Tiefenanschlag (\farbe{bediengruen}{grüner} Schieber, Skala 12--28) & Frästiefe passend zum Dübel einrasten (Abschnitt~\ref{sec:duebel}). \\ \hline
 			\teil{6} & Winkelskala & Winkel des Fräsanschlags von 0\textdegree{} bis 90\textdegree{} ablesen. \\ \hline
 			\teil{7} & Höhenskala & Höhe des Langlochs ablesen (Abschnitt~\ref{sec:hoehe}). \\ \hline
 			\teil{8} & Klemmhebel & Lösen, Höhe einstellen, wieder festklemmen. \\ \hline
